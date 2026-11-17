@@ -1,0 +1,9 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cross-origin frame control</title>
+<style>body{font:22px system-ui;margin:20px}iframe{width:100%;height:1100px;border:8px solid #8b0000}</style>
+<h1>Top-level credential origin</h1>
+<p>The red frame is loaded from an unrelated HTTPS origin. It should not be able to read this origin's saved credential.</p>
+<iframe src="https://f2-h8hcfw2-kstore-amazon.hf.space/?kids_autofill_frame=1"></iframe>
+
