@@ -7,7 +7,7 @@
 <p>Origin: <span id="origin"></span></p>
 <pre id="result">Waiting for native bridge…</pre>
 <script>
-origin.textContent = location.origin;
+document.getElementById("origin").textContent = location.origin;
 function poll() {
   const out = {bridgePresent: typeof Cloud9Autofill !== "undefined"};
   try {
